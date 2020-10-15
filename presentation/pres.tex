@@ -15,13 +15,15 @@
  	\definecolor{darkpink}{rgb}{0.91, 0.33, 0.5}
  	\definecolor{debianred}{rgb}{0.84, 0.04, 0.33}
 %% packages
-\input{settings/packages}
+\input{presentation/settings/packages}
 
 %% page settings
-\input{settings/page}
+\input{presentation/settings/page}
 
 %% new commands
-\input{settings/macros}
+\input{presentation/settings/macros}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -32,10 +34,11 @@
 \author[Matthew, Chris, Hunter]{\textcolor{coolblack}{\textbf{~Matthew~Docherty\inst{1}, Dr.~Chris~Messenger\inst{1}, Hunter~A.~Gabbard\inst{1}}}}
 \vspace{4cm}
 \title[Vitamin]{\textbf{\textcolor{coolblack}{Vitamin b: Bayesian Parameter Estimation \\ for binary black-hole coalescence}}}
-\titlegraphic{\includegraphics[width=0.3\linewidth]{img/UofG} 
-              \includegraphics[width=0.37\linewidth]{img/ligo2.png}}
-            %   \includegraphics[width=0.15\linewidth]{img/Cambridge}}
-% \titlegraphic{\includegraphics[width=0.1\linewidth]{img/ORCIDiD_icon}}
+\titlegraphic{\includegraphics[width=0.24\linewidth]{figs/UofG} 
+              \includegraphics[width=0.32\linewidth]{figs/ligo2}
+              \includegraphics[width=0.19\linewidth]{figs/igr}
+              \includegraphics[width=0.17\linewidth]{figs/supa}}
+% \titlegraphic{\includegraphics[width=0.1\linewidth]{figs/ORCIDiD_icon}}
 \institute{\inst{1} School of Physics and Astronomy, University of Glasgow, UK} %\and
         %   \inst{2} Inter-University Centre for Astronomy and Astrophysics, Pune, India \and
         %   \inst{3} DAMTP, Centre for Mathematical Sciences, University of Cambridge, UK}
@@ -46,7 +49,7 @@
 \begin{document}
 
 {
-%   \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/sigmoid_back.jpg}}
+%   \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figs/sigmoid_back.jpg}}
   \begin{frame}
     \titlepage
     \date{}
@@ -93,10 +96,10 @@ impulsive, peak and decay phase of flares
 
 % Adding two sigmoid images
 \begin{textblock*}{30mm}(80mm,12mm)
-\includegraphics[height = 35mm, width=40mm]{img/sigmoid_img}
+\includegraphics[height = 35mm, width=40mm]{figs/sigmoid_img}
 \end{textblock*}
 \begin{textblock*}{30mm}(83mm,50mm)
-\includegraphics[height = 35mm, width=37mm]{img/aia1600}
+\includegraphics[height = 35mm, width=37mm]{figs/aia1600}
 \end{textblock*}
 
 
@@ -173,10 +176,10 @@ signatures
  % Adding two sigmoid images
 %  \vspace{-20mm}
 % \begin{textblock*}{60mm}(1mm,1mm)
-% \includegraphics[trim = 1 10 10 1, clip, width=1.2\linewidth]{img/aia_context2}
+% \includegraphics[trim = 1 10 10 1, clip, width=1.2\linewidth]{figs/aia_context2}
 % \end{textblock*}
 % \begin{textblock*}{30mm}(83mm,50mm)
-% \includegraphics[height = 35mm, width=37mm]{img/aia_context2}
+% \includegraphics[height = 35mm, width=37mm]{figs/aia_context2}
 % \end{textblock*}
 % 
 % \tcbset{colframe=blue!50!black,colback=white,colupper=red!50!black, fonttitle=\bfseries,nobeforeafter,center title}
@@ -189,26 +192,26 @@ signatures
 
 % Adding two sigmoid images
 \begin{textblock*}{70mm}(20mm,10mm)
-\includegraphics[height = 20mm, width = 40mm]{img/sig1}
+\includegraphics[height = 20mm, width = 40mm]{figs/sig1}
 \end{textblock*}
 \begin{textblock*}{70mm}(70mm,10mm)
-\includegraphics[height = 20mm, width = 40mm]{img/sig2}
+\includegraphics[height = 20mm, width = 40mm]{figs/sig2}
 \end{textblock*}
 
 % Adding two sigmoid images
 \begin{textblock*}{200mm}(3mm,42mm)
-\includegraphics[height = 17mm, width = 120mm]{img/sig3}
+\includegraphics[height = 17mm, width = 120mm]{figs/sig3}
 \end{textblock*}
 \begin{textblock*}{200mm}(3mm,59mm)
-\includegraphics[height = 5mm, width = 120mm]{img/sig4}
+\includegraphics[height = 5mm, width = 120mm]{figs/sig4}
 \end{textblock*} 
 
 % Adding two sigmoid images
 \begin{textblock*}{205mm}(4mm,65mm)
-\includegraphics[height = 16mm, width = 120mm]{img/sig5}
+\includegraphics[height = 16mm, width = 120mm]{figs/sig5}
 \end{textblock*}
 \begin{textblock*}{210mm}(4mm,81.5mm)
-\includegraphics[height = 4mm, width = 121mm]{img/sig6}
+\includegraphics[height = 4mm, width = 121mm]{figs/sig6}
 \end{textblock*} 
  
 % Adding two sigmoid images
@@ -236,22 +239,22 @@ signatures
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Adjust 2x2 or 3x3 figures in a frame
+%% Adjust 2x2 or 3x3 figs in a frame
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Adjust 1x2 or 1x3 figures in a frame}
+\begin{frame}{Adjust 1x2 or 1x3 figs in a frame}
 \begin{figure}
   \centering
-  \subfloat[First subfigure\label{fig:a}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}\qquad
-  \subfloat[Second subfigure\label{fig:b}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}
+  \subfloat[First subfigure\label{fig:a}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}\qquad
+  \subfloat[Second subfigure\label{fig:b}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}
 \caption{A figure}
 \label{fig:1}
 \end{figure}
   
 \begin{figure}
   \centering
-  \subfloat[Third subfigure\label{fig:c}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}\qquad    
-  \subfloat[Fourth subfigure\label{fig:d}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}%\qquad
-  \subfloat[Fifth subfigure\label{fig:e}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}
+  \subfloat[Third subfigure\label{fig:c}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}\qquad    
+  \subfloat[Fourth subfigure\label{fig:d}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}%\qquad
+  \subfloat[Fifth subfigure\label{fig:e}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}
   \caption{Another figure}
 \label{fig:2}
 \end{figure}
@@ -259,20 +262,20 @@ signatures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% 2X2 figures
+%%% 2X2 figs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{2X2 figures}
+\begin{frame}{2X2 figs}
     \begin{columns}[t]
         \column{.5\textwidth}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{foo}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{bar}
         \column{.5\textwidth}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{foo}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{bar}
     \end{columns}
 \end{frame}
@@ -280,34 +283,34 @@ signatures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% 3X2 figures
+%%% 3X2 figs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{2X3 figures}
+\begin{frame}{2X3 figs}
     \begin{columns}[t]
         \column{.25\textwidth}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{foo}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{bar}
         \column{.25\textwidth}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{foo}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{bar}
         \column{.25\textwidth}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{foo}
-        \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+        \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
         \captionof{figure}{bar}
     \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Text in a Column + figures in a column
+%% Text in a Column + figs in a column
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Two columns - Text + figures}
+\begin{frame}{Two columns - Text + figs}
     \begin{columns}[T, onlytextwidth]
         \begin{column}{0.5\textwidth}
             Some content here.\\
@@ -320,25 +323,25 @@ signatures
                 \centering
                 \begin{subfigure}%[t]{0.3 cm}
                     \left
-                    \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+                    \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
                     \caption{Two line long caption}
                     \label{fig:sub1}
                 \end{subfigure}\hskip 1em%
                 \begin{subfigure}%[t]{0.3 cm}
                     \centering
-                    \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+                    \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
                     \caption{One line caption}
                     \label{fig:sub2}
                 \end{subfigure}
                 \begin{subfigure}%[t]{0.3 cm}
                     \centering
-                    \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+                    \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
                     \caption{One line caption}
                     \label{fig:sub1}
                 \end{subfigure}\hskip 1em%
                 \begin{subfigure}%[t]{0.3 cm}
                     \centering
-                    \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+                    \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
                     \caption{Two line long caption}
                     \label{fig:sub2}
                 \end{subfigure}
@@ -355,17 +358,17 @@ signatures
 \begin{frame}
 \begin{figure}[!htpb]
 \label{fig:leslie}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-\includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+\includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
 
 \caption{Leslie Lamport and his TeXbook.}
 \end{figure}
@@ -378,7 +381,7 @@ signatures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\usebackgroundtemplate{%
-  \includegraphics[width=\paperwidth,height=\paperheight]{figures/ORCIDiD_icon.png}} 
+  \includegraphics[width=\paperwidth,height=\paperheight]{figs/ORCIDiD_icon.png}} 
 \begin{frame}{Background image with text}
  \color{yellow}{ABCD}
  \begin{textblock}{10.0}(1,2)
@@ -394,7 +397,7 @@ signatures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\usebackgroundtemplate{%
-  \includegraphics[width=\paperwidth,height=\paperheight]{figures/ORCIDiD_icon.png}} 
+  \includegraphics[width=\paperwidth,height=\paperheight]{figs/ORCIDiD_icon.png}} 
 \begin{frame}{Background image with text}
 \vspace{2em}
 \begin{block}{Block Title}
@@ -409,7 +412,7 @@ dolore magna aliqua.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\usebackgroundtemplate{%
-  \includegraphics[width=5 cm,height=5 cm]{figures/ORCIDiD_icon.png}} 
+  \includegraphics[width=5 cm,height=5 cm]{figs/ORCIDiD_icon.png}} 
 \begin{frame}
  \begin{textblock}{10.0}(1,2)
   \textcolor{red}{\textbf{This is the title of the presentation}}\\
@@ -425,7 +428,7 @@ dolore magna aliqua.
 %% images with text
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Positioning a single image}
- \includegraphics[width=3cm, heigth=3cm]{figures/cube}
+ \includegraphics[width=3cm, heigth=3cm]{figs/cube}
  \setlength{\TPHorizModule}{\textwidth}
  \setlength{\TPVertModule}{\textwidth}
  \begin{textblock*}{200}(50,200)
@@ -484,8 +487,9 @@ This is an mdframed text with yellow Background.
 
 \begin{tcolorbox}[enhanced,fit to height=5cm,
   colback=green!25!black!10!white,colframe=green!75!black,title=Fit box (5cm),
-  drop fuzzy shadow,watermark color=white,watermark text=Fit]
-  \lipsum[1-4]
+  drop fuzzy shadow,watermark color=white,watermark text=watermark test]
+%   \lipsum[1-4]
+    Hello Matthew
 \end{tcolorbox}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -586,7 +590,7 @@ This is an mdframed text with yellow Background.
 \begin{frame}
 \centering
 \begin{tikzpicture}
-\pie{10/A, 20/B, 30/C, 40/D}
+\pie{10/Parameter Estimation, 20/B, 30/C, 40/D}
 \end{tikzpicture}
 \end{frame}
 
@@ -664,6 +668,7 @@ With \cm{documentclass[aspectratio=169]\{beamer\}} you will create slides in 16:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Highlight current section}
+% \tableofcontents[currentsubsection]
 \begin{frame}{Where are we?}
 Although most of the themes have a sidebar with the sections of the presentation, it is still for some people very useful to highlight the upcoming section and its contents. \pause
 This can be achieved using the command \cm{tableofcontents[currentsection]} just after the section definition.
@@ -686,23 +691,23 @@ Columns can be used in order to separate content. \\[1cm]
 
 \subsection{Images, videos and attachments}
 \begin{frame}{Embedding images}
-You may want to use different kind of images like PNG and EPS figures. In order to be able to work with EPS figures you need to adapt your compilation procedure. Here you can see a PNG figure.
+You may want to use different kind of images like PNG and EPS figs. In order to be able to work with EPS figs you need to adapt your compilation procedure. Here you can see a PNG figure.
 \begin{center}
-	\includegraphics[width=0.2\textwidth]{figures/cube}
+	\includegraphics[width=0.2\textwidth]{figs/cube}
 \end{center}
-For conversion of PNG figures into EPS search in Google for a converter or go \wl{here}{http://www.tlhiv.org/rast2vec/}.
+For conversion of PNG figs into EPS search in Google for a converter or go \wl{here}{http://www.tlhiv.org/rast2vec/}.
 \end{frame}
 
 
 \begin{frame}{Setting a link to a video}
 You are also able to link videos to the created PDF using the command \cm{movie}.
 \begin{center}
-% 	\movie[externalviewer]{\includegraphics[width=3cm]{figures/arrow}}{videos/aia_xrt_simul_spire.mp4}
+% 	\movie[externalviewer]{\includegraphics[width=3cm]{figs/arrow}}{videos/aia_xrt_simul_spire.mp4}
 	\qquad
-	\movie[externalviewer]{\includegraphics[width=2cm]{figures/cube}}{videos/exavi.avi} \\[0.3cm]
-	\movie[externalviewer]{\includegraphics[width=3cm]{figures/arrow}}{videos/exmp4.mp4}
+	\movie[externalviewer]{\includegraphics[width=2cm]{figs/cube}}{videos/exavi.avi} \\[0.3cm]
+	\movie[externalviewer]{\includegraphics[width=3cm]{figs/arrow}}{videos/exmp4.mp4}
 	\qquad
-	\movie[externalviewer]{\includegraphics[width=2cm]{figures/cube}}{videos/exavimp4.mp4}
+	\movie[externalviewer]{\includegraphics[width=2cm]{figs/cube}}{videos/exavimp4.mp4}
 \end{center}
 A fantastic explanation on how to convert videos with the completely free VLC player can be found \wl{here}{http://www.tweakandtrick.com/2014/01/convert-videos-vlc.html}.
 \end{frame}
@@ -753,8 +758,8 @@ If a more elaborated form has to be presented, use unconver and only. Example: \
 \column{0.5\textwidth}
 	\mbox{} \\
 	\begin{overlayarea}{\textwidth}{0.4\textheight}
-	\only<4-5>{\includegraphics[width=0.4\textwidth]{figures/cube}}
-	\only<6->{\includegraphics[width=0.9\textwidth]{figures/arrow}}
+	\only<4-5>{\includegraphics[width=0.4\textwidth]{figs/cube}}
+	\only<6->{\includegraphics[width=0.9\textwidth]{figs/arrow}}
 	\end{overlayarea}
 	More Text.
 \end{columns}
@@ -900,13 +905,13 @@ Is every even number the sum of two primes?
 % 
 % 
 %   
-%   \vspace*{-3.5cm} \hspace*{8.9cm}\includegraphics[width=0.25\linewidth]{img/sigmoid_img}
-% %  \vspace*{-10pt} \hspace*{250pt}\includegraphics[width=0.25\linewidth]{img/sigmoid_img}
+%   \vspace*{-3.5cm} \hspace*{8.9cm}\includegraphics[width=0.25\linewidth]{figs/sigmoid_img}
+% %  \vspace*{-10pt} \hspace*{250pt}\includegraphics[width=0.25\linewidth]{figs/sigmoid_img}
 %  \setlength{\TPHorizModule}{\textwidth}
 %  \setlength{\TPVertModule}{\textwidth}
 %  
 % %  \begin{textblock*}{20}(200,50)
-% %   includegraphics[width=0.5\linewidth]{img/sigmoid_img}
+% %   includegraphics[width=0.5\linewidth]{figs/sigmoid_img}
 % %  \end{textblock*}
 %  
 % %  \begin{textblock*}{200}(50,200)
@@ -966,15 +971,15 @@ Is every even number the sum of two primes?
 %       \centering
 %       \only<1>
 %         {%
-%           \includegraphics[width=.4\textwidth]{figures/cube.PNG}%
+%           \includegraphics[width=.4\textwidth]{figs/cube.PNG}%
 %         }%
 %       \only<2>
 %         {%
-%           \includegraphics[width=.4\textwidth]{figures/ORCIDiD_icon.png}%
+%           \includegraphics[width=.4\textwidth]{figs/ORCIDiD_icon.png}%
 %         }%
 %       \only<3>
 %         {%
-%           \includegraphics[width=.4\textwidth]{figures/arrow.PNG}%
+%           \includegraphics[width=.4\textwidth]{figs/arrow.PNG}%
 %         }%
 %     \end{figure}
 %   \end{overlayarea}      
@@ -983,22 +988,22 @@ Is every even number the sum of two primes?
 % 
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Adjust 2x2 or 3x3 figures in a frame
+% %% Adjust 2x2 or 3x3 figs in a frame
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Adjust 1x2 or 1x3 figures in a frame}
+% \begin{frame}{Adjust 1x2 or 1x3 figs in a frame}
 % \begin{figure}
 %   \centering
-%   \subfloat[First subfigure\label{fig:a}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}\qquad
-%   \subfloat[Second subfigure\label{fig:b}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}
+%   \subfloat[First subfigure\label{fig:a}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}\qquad
+%   \subfloat[Second subfigure\label{fig:b}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}
 % \caption{A figure}
 % \label{fig:1}
 % \end{figure}
 %   
 % \begin{figure}
 %   \centering
-%   \subfloat[Third subfigure\label{fig:c}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}\qquad    
-%   \subfloat[Fourth subfigure\label{fig:d}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}%\qquad
-%   \subfloat[Fifth subfigure\label{fig:e}]{\includegraphics[height=2cm,width=3cm]{figures/ORCIDiD_icon.png}}
+%   \subfloat[Third subfigure\label{fig:c}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}\qquad    
+%   \subfloat[Fourth subfigure\label{fig:d}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}%\qquad
+%   \subfloat[Fifth subfigure\label{fig:e}]{\includegraphics[height=2cm,width=3cm]{figs/ORCIDiD_icon.png}}
 %   \caption{Another figure}
 % \label{fig:2}
 % \end{figure}
@@ -1006,20 +1011,20 @@ Is every even number the sum of two primes?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% 2X2 figures
+% %%% 2X2 figs
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% \begin{frame}{2X2 figures}
+% \begin{frame}{2X2 figs}
 %     \begin{columns}[t]
 %         \column{.5\textwidth}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{foo}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{bar}
 %         \column{.5\textwidth}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{foo}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{bar}
 %     \end{columns}
 % \end{frame}
@@ -1027,34 +1032,34 @@ Is every even number the sum of two primes?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% 3X2 figures
+% %%% 3X2 figs
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{2X3 figures}
+% \begin{frame}{2X3 figs}
 %     \begin{columns}[t]
 %         \column{.25\textwidth}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{foo}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{bar}
 %         \column{.25\textwidth}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{foo}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{bar}
 %         \column{.25\textwidth}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{foo}
-%         \includegraphics[width=\columnwidth,height=3cm]{figures/ORCIDiD_icon.png}
+%         \includegraphics[width=\columnwidth,height=3cm]{figs/ORCIDiD_icon.png}
 %         \captionof{figure}{bar}
 %     \end{columns}
 % \end{frame}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Text in a Column + figures in a column
+% %% Text in a Column + figs in a column
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% \begin{frame}{Two columns - Text + figures}
+% \begin{frame}{Two columns - Text + figs}
 %     \begin{columns}[T, onlytextwidth]
 %         \begin{column}{0.5\textwidth}
 %             Some content here.\\
@@ -1067,25 +1072,25 @@ Is every even number the sum of two primes?
 %                 \centering
 %                 \begin{subfigure}%[t]{0.3 cm}
 %                     \left
-%                     \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+%                     \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
 %                     \caption{Two line long caption}
 %                     \label{fig:sub1}
 %                 \end{subfigure}\hskip 1em%
 %                 \begin{subfigure}%[t]{0.3 cm}
 %                     \centering
-%                     \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+%                     \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
 %                     \caption{One line caption}
 %                     \label{fig:sub2}
 %                 \end{subfigure}
 %                 \begin{subfigure}%[t]{0.3 cm}
 %                     \centering
-%                     \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+%                     \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
 %                     \caption{One line caption}
 %                     \label{fig:sub1}
 %                 \end{subfigure}\hskip 1em%
 %                 \begin{subfigure}%[t]{0.3 cm}
 %                     \centering
-%                     \includegraphics[height=1cm,width=2cm]{figures/ORCIDiD_icon.png}
+%                     \includegraphics[height=1cm,width=2cm]{figs/ORCIDiD_icon.png}
 %                     \caption{Two line long caption}
 %                     \label{fig:sub2}
 %                 \end{subfigure}
@@ -1102,17 +1107,17 @@ Is every even number the sum of two primes?
 % \begin{frame}
 % \begin{figure}[!htpb]
 % \label{fig:leslie}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
-% \includegraphics[width=2.5cm]{figures/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
+% \includegraphics[width=2.5cm]{figs/ORCIDiD_icon.png}
 % 
 % \caption{Leslie Lamport and his TeXbook.}
 % \end{figure}
@@ -1125,7 +1130,7 @@ Is every even number the sum of two primes?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % {\usebackgroundtemplate{%
-%   \includegraphics[width=\paperwidth,height=\paperheight]{figures/ORCIDiD_icon.png}} 
+%   \includegraphics[width=\paperwidth,height=\paperheight]{figs/ORCIDiD_icon.png}} 
 % \begin{frame}{Background image with text}
 %  \color{yellow}{ABCD}
 %  \begin{textblock}{10.0}(1,2)
@@ -1141,7 +1146,7 @@ Is every even number the sum of two primes?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % {\usebackgroundtemplate{%
-%   \includegraphics[width=\paperwidth,height=\paperheight]{figures/ORCIDiD_icon.png}} 
+%   \includegraphics[width=\paperwidth,height=\paperheight]{figs/ORCIDiD_icon.png}} 
 % \begin{frame}{Background image with text}
 % \vspace{2em}
 % \begin{block}{Block Title}
@@ -1156,7 +1161,7 @@ Is every even number the sum of two primes?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % {\usebackgroundtemplate{%
-%   \includegraphics[width=5 cm,height=5 cm]{figures/ORCIDiD_icon.png}} 
+%   \includegraphics[width=5 cm,height=5 cm]{figs/ORCIDiD_icon.png}} 
 % \begin{frame}
 %  \begin{textblock}{10.0}(1,2)
 %   \textcolor{red}{\textbf{This is the title of the presentation}}\\
@@ -1172,7 +1177,7 @@ Is every even number the sum of two primes?
 % %% images with text
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{Positioning a single image}
-%  \includegraphics[width=3cm, heigth=3cm]{figures/cube}
+%  \includegraphics[width=3cm, heigth=3cm]{figs/cube}
 %  \setlength{\TPHorizModule}{\textwidth}
 %  \setlength{\TPVertModule}{\textwidth}
 %  \begin{textblock*}{200}(50,200)
@@ -1479,23 +1484,23 @@ Is every even number the sum of two primes?
 % 
 % \subsection{Images, videos and attachments}
 % \begin{frame}{Embedding images}
-% You may want to use different kind of images like PNG and EPS figures. In order to be able to work with EPS figures you need to adapt your compilation procedure. Here you can see a PNG figure.
+% You may want to use different kind of images like PNG and EPS figs. In order to be able to work with EPS figs you need to adapt your compilation procedure. Here you can see a PNG figure.
 % \begin{center}
-% 	\includegraphics[width=0.2\textwidth]{figures/cube}
+% 	\includegraphics[width=0.2\textwidth]{figs/cube}
 % \end{center}
-% For conversion of PNG figures into EPS search in Google for a converter or go \wl{here}{http://www.tlhiv.org/rast2vec/}.
+% For conversion of PNG figs into EPS search in Google for a converter or go \wl{here}{http://www.tlhiv.org/rast2vec/}.
 % \end{frame}
 % 
 % 
 % \begin{frame}{Setting a link to a video}
 % You are also able to link videos to the created PDF using the command \cm{movie}.
 % \begin{center}
-% % 	\movie[externalviewer]{\includegraphics[width=3cm]{figures/arrow}}{videos/aia_xrt_simul_spire.mp4}
+% % 	\movie[externalviewer]{\includegraphics[width=3cm]{figs/arrow}}{videos/aia_xrt_simul_spire.mp4}
 % 	\qquad
-% 	\movie[externalviewer]{\includegraphics[width=2cm]{figures/cube}}{videos/exavi.avi} \\[0.3cm]
-% 	\movie[externalviewer]{\includegraphics[width=3cm]{figures/arrow}}{videos/exmp4.mp4}
+% 	\movie[externalviewer]{\includegraphics[width=2cm]{figs/cube}}{videos/exavi.avi} \\[0.3cm]
+% 	\movie[externalviewer]{\includegraphics[width=3cm]{figs/arrow}}{videos/exmp4.mp4}
 % 	\qquad
-% 	\movie[externalviewer]{\includegraphics[width=2cm]{figures/cube}}{videos/exavimp4.mp4}
+% 	\movie[externalviewer]{\includegraphics[width=2cm]{figs/cube}}{videos/exavimp4.mp4}
 % \end{center}
 % A fantastic explanation on how to convert videos with the completely free VLC player can be found \wl{here}{http://www.tweakandtrick.com/2014/01/convert-videos-vlc.html}.
 % \end{frame}
@@ -1546,8 +1551,8 @@ Is every even number the sum of two primes?
 % \column{0.5\textwidth}
 % 	\mbox{} \\
 % 	\begin{overlayarea}{\textwidth}{0.4\textheight}
-% 	\only<4-5>{\includegraphics[width=0.4\textwidth]{figures/cube}}
-% 	\only<6->{\includegraphics[width=0.9\textwidth]{figures/arrow}}
+% 	\only<4-5>{\includegraphics[width=0.4\textwidth]{figs/cube}}
+% 	\only<6->{\includegraphics[width=0.9\textwidth]{figs/arrow}}
 % 	\end{overlayarea}
 % 	More Text.
 % \end{columns}
