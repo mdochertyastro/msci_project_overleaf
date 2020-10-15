@@ -1,501 +1,160 @@
 \documentclass[a4paper]{jpconf}
+
+
 \usepackage{graphicx}
+\usepackage{multicol} % for optional cols (if 2col need to make text-width bigger to compensate)
+\usepackage{listings} % for code in appendices (link main stuff to github)
+
+\usepackage[a4paper, total={7in, 9.5in}]{geometry} % set the paper/text sizes 7,9.5 in seems nice
+\geometry{footskip=2cm}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+
 \begin{document}
-\title{Preparing a paper using \LaTeXe\ for publication in \jpcs}
+\title{Presenting new feature of vitamin b}
 
-\author{Jacky Mucklow}
+\author{2259886}
 
-\address{Production Editor, \jpcs, \iopp, Dirac House, Temple Back, Bristol BS1~6BE, UK}
+\address{School of Physics and Astronomy, University of Glasgow, UK}
 
-\ead{jacky.mucklow@iop.org}
+% \ead{2259886d@student.gla.ac.uk}
 
 \begin{abstract}
-All articles {\it must} contain an abstract. This document describes the  preparation of a conference paper to be published in \jpcs\ using \LaTeXe\ and the \cls\ class file. The abstract text should be formatted using 10 point font and indented 25 mm from the left margin. Leave 10 mm space after the abstract before you begin the main text of your article. The text of your article should start on the same page as the abstract. The abstract follows the addresses and should give readers concise information about the content of the article and indicate the main results obtained and conclusions drawn. As the abstract is not part of the text it should be complete in itself; no table numbers, figure numbers, references or displayed mathematical expressions should be included. It should be suitable for direct inclusion in abstracting services and should not normally exceed 200 words. The abstract should generally be restricted to a single paragraph. Since contemporary information-retrieval systems rely heavily on the content of titles and abstracts to identify relevant articles in literature searches, great care should be taken in constructing both.
+All articles {\it must} contain an abstract. This document describes the  preparation of a conference paper to be published in \jpcs\ using \LaTeXe\ and the \cls\ class file. The abstract text should be formatted using 10 point font and indented 25 mm from the left margin. Leave 10 mm space after the abstract before you begin the main text of your article. The text of your article should start on the same page as the abstract. The abstract follows the addresses and should give readers concise information about the content of the article and indicate the main results obtained and conclusions drawn. As the abstract is not part of the text it should be complete in itself; no table numbers, figure numbers, references or displayed mathematical expressions should be included. It should be suitable for direct inclusion in abstracting services and should not normally exceed 200 words. The abstract should generally be restricted to a single paragraph. Since contemporary information-retrieval systems rely heavily on the content of titles and abstracts to identify relevant articles in literature searches, great care should be taken in constructing both.\\
+\textit{Keywords}: Bayesian, Parameter estimation,...
+
 \end{abstract}
+
+\begin{multicols}{2}
 
 \section{Introduction}
 These guidelines show how to prepare articles for publication in \jpcs\ using \LaTeX\ so they can be published quickly and accurately. Articles will be refereed by the \corg s but the accepted PDF will be published with no editing, proofreading or changes to layout. It is, therefore, the author's responsibility to ensure that the content and layout are correct.  This document has been prepared using \cls\ so serves as a sample document. The class file and accompanying documentation are available from \verb"http://jpcs.iop.org".
 
-\section{Preparing your paper}
-\verb"jpconf" requires \LaTeXe\ and  can be used with other package files such
-as those loading the AMS extension fonts 
-\verb"msam" and \verb"msbm" (these fonts provide the 
-blackboard bold alphabet and various extra maths symbols as well as 
-symbols useful in figure captions); an extra style file \verb"iopams.sty" is 
-provided to load these packages and provide extra definitions for bold Greek letters. 
-\subsection{Headers, footers and page numbers}
-Authors should {\it not} add headers, footers or page numbers to the pages of their article---they will
-be added by \iopp\ as part of the production process.
+The main intention of this practical project was to familiarise myself with the key planning, processing and presenting skills required to create an effective academic research environment. The final presentation was a galactic map which represents the density distribution of the 21cm neutral hydrogen (HI) line across the full observable sky from the Acre Road Observatory. Deciding to use the small radio telescope (SRT) negated many of the scheduling and weather limitations associated with optical imaging, all whilst contextualising our semester 1 radio astronomy lecture material within a field of current research. This particular project provided a significant incentive to learn Python as it was advised that much of the required data reduction was simplified considerably by Python-specific software packages.
 
-\subsection{{\cls\ }package options}
-The \cls\ class file has two options `a4paper' and `letterpaper':
-\begin{verbatim}
-\documentclass[a4paper]{jpconf}
-\end{verbatim}
-
-or \begin{verbatim}
-\documentclass[letterpaper]{jpconf}
-\end{verbatim}
-
-\begin{center}
-\begin{table}[h]
-\caption{\label{opt}\cls\ class file options.}
-%\footnotesize\rm
-\centering
-\begin{tabular}{@{}*{7}{l}}
-\br
-Option&Description\\
-\mr
-\verb"a4paper"&Set the paper size and margins for A4 paper.\\
-\verb"letterpaper"&Set the paper size and margins for US letter paper.\\
-\br
-\end{tabular}
-\end{table}
-\end{center}
-
-The default paper size is A4 (i.e., the default option is {\tt a4paper}) but this can be changed to Letter by 
-using \verb"\documentclass[letterpaper]{jpconf}". It is essential that you do not put macros into the text which alter the page dimensions.
-
-\section{The title, authors, addresses and abstract} 
-The code for setting the title page information is slightly different from
-the normal default in \LaTeX\ but please follow these instructions as carefully as possible so all articles within a conference have the same style to the title page. 
-The title is set in bold unjustified type using the command
-\verb"\title{#1}", where \verb"#1" is the title of the article. The
-first letter of the title should be capitalized with the rest in lower case. 
-The next information required is the list of all authors' names followed by 
-the affiliations. For the authors' names type \verb"\author{#1}", 
-where \verb"#1" is the 
-list of all authors' names. The style for the names is initials then
-surname, with a comma after all but the last 
-two names, which are separated by `and'. Initials should {\it not} have 
-full stops. First names may be used if desired. The command \verb"\maketitle" is not
-required.
-
-The addresses of the authors' affiliations follow the list of authors. 
-Each address should be set by using
-\verb"\address{#1}" with the address as the single parameter in braces. 
-If there is more 
-than one address then a superscripted number, followed by a space, should come at the start of
-each address. In this case each author should also have a superscripted number or numbers following their name to indicate which address is the appropriate one for them.
+Working at 1.4GHz, the SRT operated with a bandwidth and beam-width of 4MHz and 3\degree, respectively. The full coverage of the observable sky was achieved by a series of 24-hour drift-scan observations, where fixing the antenna\textquotesingle s declination (Dec) allows the Earth\textquotesingle s rotation to map out antenna temperature ($T_{A}$) as a function of right ascension (RA).
  
-Please also provide e-mail addresses for any or all of the authors using an \verb"\ead{#1}" command after the last address. \verb"\ead{#1}" provides the text Email: so \verb"#1" is just the e-mail address or a list of emails.  
+Section \ref{obs} details the formal planning and practical implementation of these observations before sections \ref{data reduction}-\ref{gal map} demonstrate the justified scientific decision-making that was required to convert these binary observation files into a galactic sky map. Section \ref{conc} succinctly summarises and evaluates the practical processes of the full project diet, while the appendix provides the complementary raw-code used throughout.
 
-The abstract follows the addresses and
-should give readers concise information about the content 
-of the article and should not normally exceed 200 
-words. {\bf All articles must include an abstract}. To indicate the start 
-of the abstract type \verb"\begin{abstract}" followed by the text of the 
-abstract.  The abstract should normally be restricted 
-to a single paragraph and is terminated by the command
-\verb"\end{abstract}"
+\subsection{Origin Of HI And Its Scientific Value} \label{theory}
 
-\subsection{Sample coding for the start of an article}
-\label{startsample}
-The code for the start of a title page of a typical paper might read:
-\begin{verbatim}
-\title{The anomalous magnetic moment of the 
-neutrino and its relation to the solar neutrino problem}
+% up to here redrafted
 
-\author{P J Smith$^1$, T M Collins$^2$, 
-R J Jones$^{3,}$\footnote[4]{Present address:
-Department of Physics, University of Bristol, Tyndalls Park Road, 
-Bristol BS8 1TS, UK.} and Janet Williams$^3$}
+Hydrogen is the most abundant element in the cosmos; it makes up $\sim$80\% of the universe\textquotesingle s mass~\cite{5}. Since the interstellar medium (ISM) exists at extremely low temperatures ($\sim$100K), hydrogen here exists in its lowest energy ground state. Thus, due to its sheer abundance and ability to radiate unimpeded by interstellar dust (unlike visible light), the 21cm  line of HI becomes one of the most significant lines in radio astronomy.
 
-\address{$^1$ Mathematics Faculty, Open University, 
-Milton Keynes MK7~6AA, UK}
-\address{$^2$ Department of Mathematics, 
-Imperial College, Prince Consort Road, London SW7~2BZ, UK}
-\address{$^3$ Department of Computer Science, 
-University College London, Gower Street, London WC1E~6BT, UK}
+This spectral line was first predicted by van de Hulst in 1945~\cite{8}, who concluded that it was caused by a small energy transition of only 5.87$\mu$eV from discrete spin alignments of the electron and proton in the HI atom. The higher energy state of parallel spin alignment undergoes a forbidden transition to a lower energy anti-parallel arrangement with an average lifetime of $\sim$10 billion years~\cite{6}. This arrangement is analogous to two adjacent bar magnets with magnetic moment comparable to spin geometry of the sub-atomic particles. If the magnets are forced to be in a parallel alignment with both north poles facing up, then the system is inclined to transition to a lower energy anti-parallel state where one of the magnets flip to an anti-parallel arrangement. This is where the transition gets its title of \textquotedblleft spin-flip\textquotedblright”.
 
-\ead{williams@ucl.ac.uk}
+Because of its abundance, there is a strong correlation between total mass and number density of hydrogen atoms. Thus, mapping HI gives information of large-scale structure of our galaxy~\cite{1}. Knowing that forbidden transitions produce a very narrow line profile, any detected line broadening can be likely attributed to Doppler effects of large-scale radial motion of gas. Through Doppler analysis, the HI density distribution can be converted into a velocity distribution to construct a rotation curve of the galaxy.
 
-\begin{abstract}
-The abstract appears here.
-\end{abstract}
-\end{verbatim}
+This is of paramount interest to astronomers as once the rotation curve of a galaxy is known, it can be used to infer a multitude of fundamental properties of the galaxy and its constituent objects. These range from large-scale properties such as total mass, radii of spiral arms and the inference of a halo of dark matter, to minute gravitational instabilities of density wave perturbations; the latter requiring sensitive equipment to produce an incredibly high resolution map. This is a continuing area of research, with sky surveys only as recent as 2016~\cite{8}~achieving sufficient resolution to illustrate Doppler detail from weak (but still dominant over random thermal motion) radial gas velocities. The presentation of this published map is what inspired the formatting of my own galactic plot in section~\ref{gal map}.
 
-\section{The text}
-The text of the article should should be produced using standard \LaTeX\ formatting. Articles may be divided into sections and subsections, but the length limit provided by the \corg\ should be adhered to.
+\section{Overview of Observations} \label{obs}
 
-\subsection{Acknowledgments}
-Authors wishing to acknowledge assistance or encouragement from 
-colleagues, special work by technical staff or financial support from 
-organizations should do so in an unnumbered Acknowledgments section 
-immediately following the last numbered section of the paper. The 
-command \verb"\ack" sets the acknowledgments heading as an unnumbered
-section.
+We were tasked with covering the full visible sky in nine weeks, noting that observations at an altitude (alt) of $\leq$~30\degree~become extremely noisy and convoluted from ground-based interference. Observations worked on a weekly basis by submitting a Python script every Tuesday for six observations, leaving each subsequent Monday vacant for data storage and resting the SRT motor. Significant jumps in position increased the likelihood of this motor failing, so it was decided to point south in preparation for lower alt observations -- where the majority of galactic detail exists -- and work down from 90\degree~in 2\degree~intervals. This creates the issue of the 3\degree~beam causing overlap between consecutive observations that will need to be addressed in section \ref{data reduction} to ensure integrity throughout our sky map.
 
-\subsection{Appendices}
-Technical detail that it is necessary to include, but that interrupts 
-the flow of the article, may be consigned to an appendix. 
-Any appendices should be included at the end of the main text of the paper, after the acknowledgments section (if any) but before the reference list.
-If there are two or more appendices they will be called Appendix A, Appendix B, etc. 
-Numbered equations will be in the form (A.1), (A.2), etc,
-figures will appear as figure A1, figure B1, etc and tables as table A1,
-table B1, etc.
+Each Monday, I read in and calibrated the previous week\textquotesingle s observation data using Python, as detailed in section \ref{calib}. The first week\textquotesingle s data turned out far more smeared across the waveband than expected (see figure \ref{fig:obs}(a)). Upon probing the eastern sky within the radio-band, a quasi-sinusoidal broadband transmission from the nearby science park was detected and its period discovered to be of the same order as our integration time. This accounted for the intense blurring as every individual five-second observation was convolved with a full interference profile, reducing the signal-to-noise ratio (SNR) significantly. As a preventative measure, we aimed the second week’s high Alt observations westward to minimise interception with the signal. This brought about very little difference however, the third week\textquotesingle s data had no such blurring. From this instantaneous fix, I deduced that it was likely some small electronic device producing the signal, whose emission within a restricted band was overlooked and coincidentally turned off after week three.
 
-The command \verb"\appendix" is used to signify the start of the
-appendixes. Thereafter \verb"\section", \verb"\subsection", etc, will 
-give headings appropriate for an appendix. To obtain a simple heading of 
-`Appendix' use the code \verb"\section*{Appendix}". If it contains
-numbered equations, figures or tables the command \verb"\appendix" should
-precede it and \verb"\setcounter{section}{1}" must follow it. 
+In its absence, the SRT was pointed south again and –-- leaving time to repeat these sullied observations over the Easter break -- lower alt observations were continued, eventually clipping the sun. We can see from the power values in figure \ref{fig:obs}(b) that it is incredibly intense across the full waveband. This will need to be accounted for in section \ref{cleaning} as, upon integration across the waveband, this sun value will saturate our sky map.
 
-\section{References}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In the online version of \jpcs\ references will be linked to their original source or to the article within a secondary service such as INSPEC or ChemPort wherever possible. To facilitate this linking extra care should be taken when preparing reference lists. 
+\subsection{Calibration Method} \label{calib}
 
-Two different styles of referencing are in common use: the Harvard alphabetical system and the Vancouver numerical system.  For \jpcs, the Vancouver numerical system is preferred but authors should use the Harvard alphabetical system if they wish to do so. In the numerical system references are numbered sequentially throughout the text within square brackets, like this [2], and one number can be used to designate several references.  
+Calibration required a flat-frame observation to be taken with eccosorb material blocking the receiver, allowing only transmission from the two calibration lines to be detected. An integration time of sixty seconds was required to allow time for multiple five-second observations across the waveband to be taken after the electronics warmed up. The more intense of the two lines (cal1) was so intense compared to any detected galactic emission that it dominates both calibration and observation data. This allows us to normalise each relative to the cal1 reference and then divide to remove any receiver noise. However, this normalisation scales $T_{A}$ thus, for convention I kept them as arbitrary power values in figure \ref{fig:obs}.
 
-\subsection{Using \BibTeX}
-We highly recommend the {\ttfamily\textbf\selectfont iopart-num} \BibTeX\ package by Mark~A~Caprio \cite{iopartnum}, which is included with this documentation.
+Listing \ref{lst:calib} in appendix illustrates how the flat-frame was constructed by taking an average of the observations after the electronics had settled. This method is only valid under the assumption that cal1 remains invariant during and between each observation. From previous years' archival data we were aware of some fluctuations in both calibration line intensities. In section \ref{recalib}, I tested the integrity of our own lines to decide if an alternate calibration method needed to be comprised.
 
-\subsection{Reference lists}
-A complete reference should provide the reader with enough information to locate the article concerned, whether published in print or electronic form, and should, depending on the type of reference, consist of:  
+\section{Data Reduction} \label{data reduction} 
 
-\begin{itemize}
-\item name(s) and initials;
-\item date published;
-\item title of journal, book or other publication; 
-\item titles of journal articles may also be included (optional);
-\item volume number;
-\item editors, if any;
-\item town of publication and publisher in parentheses for {\it books};
-\item the page numbers.
-\end{itemize}
+By nature of radio observations, both signal and background are noise-like therefore the focus of data reduction is increasing SNR wherever possible. By integrating across the full waveband, the signal level grows whilst the random noise that it sits above converges to a mean value, consequently allowing the signal to be discernible from the background level. This provides the ability to isolate and remove noise-level data –- a tool that proves useful when implemented in section \ref{gal map}.
 
-Up to ten authors may be given in a particular reference; where 
-there are more than ten only the first should be given followed by 
-`{\it et al}'. If an author is unsure of a particular journal's abbreviated title it is best to leave the title in 
-full. The terms {\it loc.\ cit.\ }and {\it ibid.\ }should not be used. 
-Unpublished conferences and reports should generally not be included 
-in the reference list and articles in the course of publication should 
-be entered only if the journal of publication is known. 
-A thesis submitted for a higher degree may be included 
-in the reference list if it has not been superseded by a published 
-paper and is available through a library; sufficient information 
-should be given for it to be traced readily.
+For a single observation, the values of $T_{A}$ in each of the 256 frequency columns were summed. A loop was then introduced to repeat this for each row, producing a 1D array of power value corresponding to five-second observation, illustrated in figure \ref{fig:powers}(a). We can see a lot of the profile detail is saturated by early observations. I assumed this would be attributed to the time-delay in electronics warming up -- similar to the calibration electronics in section \ref{calib}. Figure \ref{fig:powers}(b) shows that, by excluding the first thirty seconds of the observation, details such as receiver-based saturation lines become more apparent. Moving forward, these lines need to be accounted for to prevent misplaced locations of HI within our sky map.
 
-\subsection{Formatting reference lists}
-Numeric reference lists should contain the references within an unnumbered section (such as \verb"\section*{References}"). The 
-reference list itself is started by the code 
-\verb"\begin{thebibliography}{<num>}", where \verb"<num>" is the largest
-number in the reference list and is completed by
-\verb"\end{thebibliography}". 
-Each reference starts with \verb"\bibitem{<label>}", where `label' is the label used for cross-referencing. Each \verb"\bibitem" should only contain a reference to a single article (or a single article and a preprint reference to the same article).  When one number actually covers a group of two or more references to different articles, \verb"\nonum"
-should replace \verb"\bibitem{<label>}" at
-the start of each reference in the group after the first.
+Having an array of powers corresponding to each five-second observation is useful, however a conversion from an arbitrary time series to discrete RA values is required for mapping. This was done by importing Python\textquotesingle s \textit{Astropy} package. 
 
-For an alphabetic reference list use \verb"\begin{thereferences}" ... \verb"\end{thereferences}" instead of the
-`thebibliography' environment and each reference can be start with just \verb"\item" instead of \verb"\bibitem{label}"
-as cross referencing is less useful for alphabetic references.
+Provided by our demonstrator, listing \ref{lst:astropy} in appendix constructed variables of starting RA, Dec and time of each observation directly from its filename. These, along with the desired number of discrete coordinate values throughout 24 hour observation were inputted into the \textit{astropy.coordinates} function. This created two separate arrays of RA and Dec corresponding to each five-second observation. Small fluctuations ($\leq$~0.2\degree) in Dec values arose from slight wobbles in SRT motor positioning, however this would have little bearing on a map spread across full 90\degree~sky. Unexpectedly, both RA and Dec values were printed as coordinates in degrees and arcminutes, so a conversion of RA into units of time would be required. 
 
-\subsection {References to printed journal articles}
-A normal reference to a journal article contains three changes of font (see table \ref{jfonts}) and is constructed as follows:
+We now have discrete arrays of RA, Dec and power for each observation -- the remainder of section \ref{data reduction} discusses two methods of combining these into a sky map.
 
-\begin{itemize}
-\item the authors should be in the form surname (with only the first letter capitalized) followed by the initials with no periods after the initials. Authors should be separated by a comma except for the last two which should be separated by `and' with no comma preceding it;
-\item the article title (if given) should be in lower case letters, except for an initial capital, and should follow the date;
-\item the journal title is in italic and is abbreviated. If a journal has several parts denoted by different letters the part letter should be inserted after the journal in Roman type, e.g. {\it Phys. Rev.} A;
-\item the volume number should be in bold type;
-\item both the initial and final page numbers should be given where possible. The final page number should be in the shortest possible form and separated from the initial page number by an en rule `-- ', e.g. 1203--14, i.e. the numbers `12' are not repeated.
-\end{itemize}
+\subsection{Idea 1 –- Scatter Plot of Quantised Power Values} \label{idea1}
 
-A typical (numerical) reference list might begin
+My first idea focussed on increasing the effective integration times of observations to suppress receiver-error spikes in power from figure \ref{fig:powers}(b). Setting the extent of this increase became a trade-off between SNR and resolution. It was noted that the 3\degree~beam sets a severe limit on resolution and trying to move past this would be equivalent to trying to recreate a 17th century painting with a broad-tip sharpie –- pointless. I decided an increase from five seconds to four minutes allowed exactly 360 effective observations per 24-hour exposure. This was implemented by summing up every 48 values of power, producing an appropriate number to use with coordinates and a cleaner power profile –- see figure \ref{fig:powers}(c). 
 
-\medskip
-\begin{thebibliography}{9}
-\item Strite S and Morkoc H 1992 {\it J. Vac. Sci. Technol.} B {\bf 10} 1237 
-\item Jain S C, Willander M, Narayan J and van Overstraeten R 2000 
-{\it J. Appl. Phys}. {\bf 87} 965 
-\item Nakamura S, Senoh M, Nagahama S, Iwase N, Yamada T, Matsushita T, Kiyoku H 
-and 	Sugimoto Y 1996 {\it Japan. J. Appl. Phys.} {\bf 35} L74 
-\item Akasaki I, Sota S, Sakai H, Tanaka T, Koike M and Amano H 1996 
-{\it Electron. Lett.} {\bf 32} 1105 
-\item O'Leary S K, Foutz B E, Shur M S, Bhapkar U V and Eastman L F 1998 
-{\it J. Appl. Phys.} {\bf 83} 826 
-\item Jenkins D W and Dow J D 1989 {\it Phys. Rev.} B {\bf 39} 3317 
-\end{thebibliography}
-\smallskip
+Ensuring the \textit{astropy.coordinates} time range remains equal to the length of power array, we have two corresponding coordinate arrays of 360 values. After some research on \textit{numpy} package (this deals with manipulation of arrays), I encountered \textit{numpy.meshgrid} that takes two arrays and plots a 2D linear-space frame, over which our map can be plotted. I then found the function \textit{matplotlib.pyplot.scatter} (\textit{matplotlib.pyplot} being a package that deals with formatting data plots) which takes three arrays and plots a colormap of the latter on top of an x-y grid of the first two -- provided they are all of equal length. This method was implemented, as detailed in listing \ref{lst:scatter} in appendix, and then looped to overlay all 50 observations atop this meshgrid. The marker size was increased to 25 to minimise the discontinuous barcode-like effect caused by overlaying discrete strips of Dec, producing figure \ref{fig:scatter}.
 
-\noindent which would be obtained by typing
+\subsubsection{Evaluation of Scatter Method} \label{idea1 eval}
 
-\begin{verbatim}
-\begin{\thebibliography}{9}
-\item Strite S and Morkoc H 1992 {\it J. Vac. Sci. Technol.} B {\bf 10} 1237 
-\item Jain S C, Willander M, Narayan J and van Overstraeten R 2000 
-{\it J. Appl. Phys}. {\bf 87} 965 
-\item Nakamura S, Senoh M, Nagahama S, Iwase N, Yamada T, Matsushita T, Kiyoku H 
-and 	Sugimoto Y 1996 {\it Japan. J. Appl. Phys.} {\bf 35} L74 
-\item Akasaki I, Sota S, Sakai H, Tanaka T, Koike M and Amano H 1996 
-{\it Electron. Lett.} {\bf 32} 1105 
-\item O'Leary S K, Foutz B E, Shur M S, Bhapkar U V and Eastman L F 1998 
-{\it J. Appl. Phys.} {\bf 83} 826 
-\item Jenkins D W and Dow J D 1989 {\it Phys. Rev.} B {\bf 39} 3317 
-\end{\thebibliography}
-\end{verbatim}
+This plot successfully shows some galactic plane detail. However, when trying to clean up the noise and discontinuities of the image, the severe limitations in the coding style and underlying method itself became evident.
 
-\begin{center}
-\begin{table}[h]
-\centering
-\caption{\label{jfonts}Font styles for a reference to a journal article.} 
-\begin{tabular}{@{}l*{15}{l}}
-\br
-Element&Style\\
-\mr
-Authors&Roman type\\
-Date&Roman type\\
-Article title (optional)&Roman type\\
-Journal title&Italic type\\
-Volume number&Bold type\\
-Page numbers&Roman type\\
-\br
-\end{tabular}
-\end{table}
-\end{center}
+I encountered my first issue when applying a colorbar to the plot with limits that would accentuate its power detail. However, as it is constructed by overlaying one iteration at a time, it was not possible to associate a colorbar with the entire plot due to independent power levels of each strip. This creates a significant power gradient in the middle of the plot, where there should exist only blank sky. Furthermore, the underlying method does not account for the power overlap between consecutive observations. Similar CCDs above their pixel capacity saturating an image, our data squeezes up and appears more intense as we increase in Dec. As the majority of the observable galactic detail exists at lower Decs, this data overlap is a large detriment to the integrity of our sky map.
 
-\subsection{References to \jpcs\ articles}
-Each conference proceeding published in \jpcs\ will be a separate {\it volume}; 
-references should follow the style for conventional printed journals. For example:\vspace{6pt}
-\numrefs{1}
-\item Douglas G 2004 \textit{J. Phys.: Conf. Series} \textbf{1} 23--36
-\endnumrefs
+Moving forward, we need a method that accounts for this observational overlap and that plots outside the data reduction process to allow image cleaning.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{References to preprints}
-For preprints there are two distinct cases:
-\renewcommand{\theenumi}{\arabic{enumi}}
-\begin{enumerate}
-\item Where the article has been published in a journal and the preprint is supplementary reference information. In this case it should be presented as:
-\medskip
-\numrefs{1}
-\item Kunze K 2003 T-duality and Penrose limits of spatially homogeneous and inhomogeneous cosmologies {\it Phys. Rev.} D {\bf 68} 063517 ({\it Preprint} gr-qc/0303038)
-\endnumrefs
-\item Where the only reference available is the preprint. In this case it should be presented as
-\medskip
-\numrefs{1}
-\item Milson R, Coley A, Pravda V and Pravdova A 2004 Alignment and algebraically special tensors {\it Preprint} gr-qc/0401010
-\endnumrefs
-\end{enumerate}
+\subsection{Idea 2 -- Quantised Matrix Map} \label{idea2}
 
-\subsection{References to electronic-only journals}
-In general article numbers are given, and no page ranges, as most electronic-only journals start each article on page 1.
+My idea in section \ref{idea1} successfully corrected for RA overlapping thoughout each observation but was unable to do the same for Decs between each observation. To correct for both coordinate axes, I decided to round both RA and Decs to the nearest degree. This effectively takes all observations, quantises their positions into small sky patches of 1\degree~by 1\degree~and overlays their power data to discretise the observable sky into a 90x360 grid of Dec and RA, respectively. 
 
-\begin{itemize} 
-\item For {\it New Journal of Physics} (article number may have from one to three digits)
-\numrefs{1}
-\item Fischer R 2004 Bayesian group analysis of plasma-enhanced chemical vapour deposition data {\it New. J. Phys.} {\bf 6} 25 
-\endnumrefs
-\item For SISSA journals the volume is divided into monthly issues and these form part of the article number
+A matrix of equal dimensions to the sky grid was then constructed with each position in this matrix analogous to a CCD pixel which is only sensitive to its corresponding sky grid position and whose value is the sum of all power values transmitted from this patch of sky. A second matrix was then created as a 2D histogram to keep track of how many discrete integrations were contained within each sky grid position. The power matrix was then divided by this counter matrix, which corrects for the overlap by scaling the final power distribution to ensure an equal number of effective observations were taken in each angular position across the full sky.
 
-\numrefs{2}
-\item Horowitz G T and Maldacena J 2004 The black hole final state {\it J. High Energy Phys.}  	JHEP02(2004)008
-\item Bentivegna E, Bonanno A and Reuter M 2004 Confronting the IR fixed point cosmology 	with 	high-redshift observations {\it J. Cosmol. Astropart. Phys.} JCAP01(2004)001  
-\endnumrefs
-\end{itemize} 
+Listing \ref{lst:matrix} in appendix details how position arrays were rounded and their integer values extracted to be used as pixel-indices for the power matrix. The counter was constructed as a \textit{numpy.ones} matrix opposed to one of zeros to prevent Python trying to divide by zero in regions of blank sky. Figure \ref{fig:matrix} shows the image produced using this method.
 
-\subsection{References to books, conference proceedings and reports}
-References to books, proceedings and reports are similar to journal references, but have 
-only two changes of font (see table~\ref{book}). 
+Although the problem of observational overlap has been corrected for, this image is devoid of any illustrative galactic detail. It appears as though an incredibly bright object with a Dec of ~12\degree~saturates it. With reference to figure \ref{fig:obs}(b), this object is likely to be the Sun and so a better picture of HI density distribution across the galactic plane requires this sun saturation to be ameliorated.
 
-\begin{table}
-\centering
-\caption{\label{book}Font styles for references to books, conference proceedings and reports.}
-\begin{tabular}{@{}l*{15}{l}}
-\br
-Element&Style\\
-\mr
-Authors&Roman type\\
-Date&Roman type\\
-Book title (optional)&Italic type\\
-Editors&Roman type\\
-Place (city, town etc) of publication&Roman type\\
-Publisher&Roman type\\
-Volume&Roman type\\
-Page numbers&Roman type\\
-\br
-\end{tabular}
-\end{table}
+\section{Image Cleaning} \label{cleaning}
 
-Points to note are:
-\medskip
-\begin{itemize}
-\item Book titles are in italic and should be spelt out in full with initial capital letters for all except minor words. Words such as Proceedings, Symposium, International, Conference, Second, etc should be abbreviated to {\it Proc.}, {\it Symp.}, {\it Int.}, {\it Conf.}, {\it 2nd}, respectively, but the rest of the title should be given in full, followed by the date of the conference and the town or city where the conference was held. For Laboratory Reports the Laboratory should be spelt out wherever possible, e.g. {\it Argonne National Laboratory Report}.
-\item The volume number, for example vol 2, should be followed by the editors, if any, in a form such as `ed A J Smith and P R Jones'. Use {\it et al} if there are more than two editors. Next comes the town of publication and publisher, within brackets and separated by a colon, and finally the page numbers preceded by p if only one number is given or pp if both the initial and final numbers are given.
-\end{itemize}
+Up until this point, the project had been primarily concept-oriented with some basic programming used to produce a sky map in RA/Dec –- see figure \ref{fig:matrix}. Looking onwards, it became a computationally driven effort to make this image as informative as possible by means of a series of justified scientific decisions and manipulations; namely, removing the sun saturation and implementing a blank sky calibration.
 
-Examples taken from published papers:
-\medskip
+\subsection{Sun Removal}
 
-\numrefs{99}
-\item Kurata M 1982 {\it Numerical Analysis for Semiconductor Devices} (Lexington, MA: Heath)
-\item Selberherr S 1984 {\it Analysis and Simulation of Semiconductor Devices} (Berlin: Springer)
-\item Sze S M 1969 {\it Physics of Semiconductor Devices} (New York: Wiley-Interscience)
-\item Dorman L I 1975 {\it Variations of Galactic Cosmic Rays} (Moscow: Moscow State University Press) p 103
-\item Caplar R and Kulisic P 1973 {\it Proc. Int. Conf. on Nuclear Physics (Munich)} vol 1 (Amsterdam: 	North-Holland/American Elsevier) p 517
-\item Cheng G X 2001 {\it Raman and Brillouin Scattering-Principles and Applications} (Beijing: Scientific) 
-\item Szytula A and Leciejewicz J 1989 {\it Handbook on the Physics and Chemistry of Rare Earths} vol 12, ed K A Gschneidner Jr and L Erwin (Amsterdam: Elsevier) p 133
-\item Kuhn T 1998 {\it Density matrix theory of coherent ultrafast dynamics Theory of Transport Properties of Semiconductor Nanostructures} (Electronic Materials vol 4) ed E Sch\"oll (London: Chapman and Hall) chapter 6 pp 173--214
-\endnumrefs
+In essence, I wanted to plot the values of power matrix in descending order and see if there is a significant spike from sun emission. Then (without altering galactic data) remove power values above this discontinuity threshold and re-plot.
 
-\section{Tables and table captions}
-Tables should be numbered serially and referred to in the text 
-by number (table 1, etc, {\bf rather than} tab. 1). Each table should be a float and be positioned within the text at the most convenient place near to where it is first mentioned in the text. It should have an 
-explanatory caption which should be as concise as possible. 
+Firstly, the low-limit saturation of zero power values from non-observed sky was corrected by utilising the \textit{numpy.nan} function to logically replace each zero point to \textquotedblleft not a number\textquotedblright~that are effectively ignored in plotting process. (Noting the similarity between this and removing power-values during electronic warmup in section \ref{obs}). To deal with the high-limit saturation, I created a function that reordered the matrix into descending power values -- listing \ref{lst:sunthresh} in appendix highlights the steps taken to reshape power matrix into a 1D list before implementing this function. 
 
-\subsection{The basic table format}
-The standard form for a table is:
-\begin{verbatim}
-\begin{table}
-\caption{\label{label}Table caption.}
-\begin{center}
-\begin{tabular}{llll}
-\br
-Head 1&Head 2&Head 3&Head 4\\
-\mr
-1.1&1.2&1.3&1.4\\
-2.1&2.2&2.3&2.4\\
-\br
-\end{tabular}
-\end{center}
-\end{table}
-\end{verbatim}
 
-The above code produces table~\ref{ex}.
+These values were plotted in figure \ref{fig:thresh}(a), showing a significant discrepancy between the first twenty power values and the remainder of the array. This allowed the approximate threshold of sun emission to be identified. The exact value could not be determined, as there would be inevitable overlap in power values between strong galactic and weak sun emission. Due to the discrete location of the sun within the map, it was possible circumvent this possible loss of galactic emission detail by only applying this threshold to RA’s greater than 19hrs which do not intercept with galactic plane; if a particular Dec has corresponding power value above threshold, it gets replaced by the mean power of the blank sky of the same Dec.
 
-\begin{table}[h]
-\caption{\label{ex}Table caption.}
-\begin{center}
-\begin{tabular}{llll}
-\br
-Head 1&Head 2&Head 3&Head 4\\
-\mr
-1.1&1.2&1.3&1.4\\
-2.1&2.2&2.3&2.4\\
-\br
-\end{tabular}
-\end{center}
-\end{table}
-
-Points to note are:
-\medskip
-\begin{enumerate}
-\item The caption comes before the table.
-\item The normal style is for tables to be centred in the same way as
-equations. This is accomplished
-by using \verb"\begin{center}" \dots\ \verb"\end{center}".
-
-\item The default alignment of columns should be aligned left.
-
-\item Tables should have only horizontal rules and no vertical ones. The rules at
-the top and bottom are thicker than internal rules and are set with
-\verb"\br" (bold rule). 
-The rule separating the headings from the entries is set with
-\verb"\mr" (medium rule). These commands do not need a following double backslash.
-
-\item Numbers in columns should be aligned as appropriate, usually on the decimal point;
-to help do this a control sequence \verb"\lineup" has been defined 
-which sets \verb"\0" equal to a space the size of a digit, \verb"\m"
-to be a space the width of a minus sign, and \verb"\-" to be a left
-overlapping minus sign. \verb"\-" is for use in text mode while the other
-two commands may be used in maths or text.
-(\verb"\lineup" should only be used within a table
-environment after the caption so that \verb"\-" has its normal meaning
-elsewhere.) See table~\ref{tabone} for an example of a table where
-\verb"\lineup" has been used.
-\end{enumerate}
-
-\begin{table}[h]
-\caption{\label{tabone}A simple example produced using the standard table commands 
-and $\backslash${\tt lineup} to assist in aligning columns on the 
-decimal point. The width of the 
-table and rules is set automatically by the 
-preamble.} 
-
-\begin{center}
-\lineup
-\begin{tabular}{*{7}{l}}
-\br                              
-$\0\0A$&$B$&$C$&\m$D$&\m$E$&$F$&$\0G$\cr 
-\mr
-\0\023.5&60  &0.53&$-20.2$&$-0.22$ &\01.7&\014.5\cr
-\0\039.7&\-60&0.74&$-51.9$&$-0.208$&47.2 &146\cr 
-\0123.7 &\00 &0.75&$-57.2$&\m---   &---  &---\cr 
-3241.56 &60  &0.60&$-48.1$&$-0.29$ &41   &\015\cr 
-\br
-\end{tabular}
-\end{center}
-\end{table}
+The resulting map –- illustrated in figure \ref{fig:thresh}(b) –- was optimised by correlating extremities of power values and colorbar limits. With galactic plane detail now evident, two unexpected results were identified; the former being the discretisation of the (ideally) continuous galactic plane. This was attributed to a resolution limitation - an unavoidable consequence of optimising its conjugate variable of SNR. The latter being the blank sky region seeming to have severe inconsistencies between strips of Dec, as if the system temperature ($T_{sys}$) of the SRT varies between observations. Further investigation of these variations was undertaken in section \ref{recalib}.
  
-\section{Figures and figure captions}
-Figures must be included in the source code of an article at the appropriate place in the text not grouped together at the end. 
+ \subsection{Recalibrating data} \label{recalib}
 
-Each figure should have a brief caption describing it and, if 
-necessary, interpreting the various lines and symbols on the figure. 
-As much lettering as possible should be removed from the figure itself and 
-included in the caption. If a figure has parts, these should be 
-labelled ($a$), ($b$), ($c$), etc. 
-\Tref{blobs} gives the definitions for describing symbols and lines often
-used within figure captions (more symbols are available
-when using the optional packages loading the AMS extension fonts).
-
-\begin{table}[h]
-\caption{\label{blobs}Control sequences to describe lines and symbols in figure 
-captions.}
-\begin{center}
-\begin{tabular}{lllll}
-\br
-Control sequence&Output&&Control sequence&Output\\
-\mr
-\verb"\dotted"&\dotted        &&\verb"\opencircle"&\opencircle\\
-\verb"\dashed"&\dashed        &&\verb"\opentriangle"&\opentriangle\\
-\verb"\broken"&\broken&&\verb"\opentriangledown"&\opentriangledown\\
-\verb"\longbroken"&\longbroken&&\verb"\fullsquare"&\fullsquare\\
-\verb"\chain"&\chain          &&\verb"\opensquare"&\opensquare\\
-\verb"\dashddot"&\dashddot    &&\verb"\fullcircle"&\fullcircle\\
-\verb"\full"&\full            &&\verb"\opendiamond"&\opendiamond\\
-\br
-\end{tabular}
-\end{center}
-\end{table}
+My planned investigatory process was to test the integrity of the calibration lines for each observation and if necessary find a method to recalibrate data by forcing the blank sky region of our map to homogenise.
 
 
-Authors should try and use the space allocated to them as economically as possible. At times it may be convenient to put two figures side by side or the caption at the side of a figure. To put figures side by side, within a figure environment, put each figure and its caption into a minipage with an appropriate width (e.g. 3in or 18pc if the figures are of equal size) and then separate the figures slightly by adding some horizontal space between the two minipages (e.g. \verb"\hspace{.2in}" or \verb"\hspace{1.5pc}". To get the caption at the side of the figure add the small horizontal space after the \verb"\includegraphics" command and then put the \verb"\caption" within a minipage of the appropriate width aligned bottom, i.e. \verb"\begin{minipage}[b]{3in}" etc (see code in this file used to generate figures 1--3).
 
-Note that it may be necessary to adjust the size of the figures (using optional arguments to \verb"\includegraphics", for instance \verb"[width=3in]") to get you article to fit within your page allowance or to obtain good page breaks.
 
-\begin{figure}[h]
-\begin{minipage}{14pc}
-\includegraphics[width=14pc]{name.eps}
-\caption{\label{label}Figure caption for first of two sided figures.}
-\end{minipage}\hspace{2pc}%
-\begin{minipage}{14pc}
-\includegraphics[width=14pc]{name.eps}
-\caption{\label{label}Figure caption for second of two sided figures.}
-\end{minipage} 
-\end{figure}
+In the reshaped data files, calibration lines were observed across frequency columns 34 and 222. The mean power in these bins throughout each observation were plotted - ideally producing two horizontal lines of invariant power. Figure \ref{fig:recalib}(a) instead presented $T_{sys}$ variations of up to 35\% between observations. After consulting with demonstrators, these wild fluctuations were attributed to the changing temperature outside having a significant effect on $T_{sys}$. However, due to time restrictions, no real preventative investigation into this was carried out, and instead it was decided to recalibrate using the blank sky region of our map.
 
-\begin{figure}[h]
-\includegraphics[width=14pc]{name.eps}\hspace{2pc}%
-\begin{minipage}[b]{14pc}\caption{\label{label}Figure caption for a narrow figure where the caption is put at the side of the figure.}
-\end{minipage}
-\end{figure}
+This recalibration was constructed by taking a vertical slice of expected blank sky and manipulating each strip of Dec to conform to a constant value. The vertical slice was chosen in the middle of map to prevent compromising the integrity of the galactic plane emission. Listing \ref{lst:recalib} in appendix shows how I created a column vector with elements corresponding to the quotient of each strip of Dec relative to an arbitrary reference Dec. The power matrix was manipulated by this scaling vector to create a homogenised region in the middle of the map, see figure \ref{fig:recalib}(b). This produced a more uniform background level allowing the signal to have far better visual clarity between Decs. The final step in this project was now to convert this RA/Dec map into galactic coordinates to illustrate the density distribution more effectively throughout the geometry of the galactic plane.
 
-Using the graphicx package figures can be included using code such as:
-\begin{verbatim}
-\begin{figure}
-\begin{center}
-\includegraphics{file.eps}
-\end{center}
-\caption{\label{label}Figure caption}
-\end{figure}
-\end{verbatim}
+\section{Producing Galactic Map} \label{gal map}
+
+To prevent unwanted signal being revolved and contorted during the \textit{astropy.coordinate} conversion, I decided to isolate the galactic emission by taking a strict threshold that homogenises any signal under a certain power level. Listing \ref{lst:thresh} in appendix illustrates how this was implemented, with the limiting value iteratively chosen as high as possible without notable loss of galactic detail. Figure \ref{fig:rathresh} illustrates the positive effect that homogenising background has on visual galactic detail. However, altering the data so severely to maximise image quality limits the ability to correlate power values with sky temperature and thus, the colormap was kept as a simple qualitative representation of HI Abundance.
+
+
+
+To convert this data into galactic coordinates, Decs had to be altered to span from -90\degree~to +90\degree~to align with galactic latitude. Listing \ref{lst:galplot} in appendix shows the technicalities required to ensure the galactic plane and the equator of our map aligned. Figure \ref{fig:gal map} was produced using a hammer projection to accentuate galactic equator detail - noting the shift of galactic longitude axis to be centred on 120\degree~to allow a more symmetrical presentation of data, limited by the observable sky from Glasgow.
+
+
+
+Although devoid of quantitative representation of HI emission, this plot successfully conveys the flat geometry of galactic equator. Some remnants of this \textit{astropy} signal contortion, despite minimised by threshold, still exist as an unavoidable consequence of ensuring no loss of galactic emission. The absence of central galactic detail could have been predicted from our previous RA/Dec maps as their galactic profile lines do not join at the base. This is due to this join occurring at Decs so low that our observations were invalidated by intense ground-based interference.
+
+
+
+
+
+\section{Conclusion} \label{conc}
+
+The aim of this report was to provide a practical account of my first involvement in a formal academic research environment. My experience of working as part of a large team saw specific tasks of observational planning, data reduction and result presenting successfully undertaken; culminating in the production of a galactic HI density distribution map (see figure \ref{fig:gal map}).
+
+Both collaborative and individual work enabled the detection and correction of issues, such as the presence of strong interference sources and fluctuating calibration lines, through due scientific process. I also gained experience of justifying and executing scientific decisions allowing results to be presented in a more illustrative manner.
+
+For further work, our binary data files could be used to construct a velocity distribution by discretising the waveband instead of integrating across its entirety. This new distribution would be a more versatile tool for probing galactic structure and its parameters (see section ~\ref{theory}). Furthermore, due to the large amount of observational data, Python scripts took a surplus of twenty minutes to create final plots. If further measurements of the observable sky were to be taken, a heavier-duty coding package such as \textit{C++} would enhance the efficiency of raw data reduction before exporting to Python for user-friendly alterations and presentations.
 
 \section*{References}
-\begin{thebibliography}{9}
-\bibitem{iopartnum} IOP Publishing is to grateful Mark A Caprio, Center for Theoretical Physics, Yale University, for permission to include the {\tt iopart-num} \BibTeX package (version 2.0, December 21, 2006) with  this documentation. Updates and new releases of {\tt iopart-num} can be found on \verb"www.ctan.org" (CTAN). 
-\end{thebibliography}
+\bibliography{shared_resources/master.bib}{}
+\bibliographystyle{ieeetr}
+
+\end{multicols}
 
 \end{document}
 

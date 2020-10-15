@@ -10,12 +10,12 @@
 \newif\ifiopams
 \@titlepagefalse
 \@letterpaperfalse
-\DeclareOption{a4paper}
-   {\setlength\paperheight {297mm}%
-    \setlength\paperwidth  {210mm}%
-\@letterpaperfalse}
+% \DeclareOption{a4paper}
+%   {\setlength\paperheight {297mm}% 297 default
+%     \setlength\paperwidth  {210mm}% 210 default
+% \@letterpaperfalse}
 \DeclareOption{letterpaper}
-   {\setlength\paperheight {279.4mm}%
+   {\setlength\paperheight {100.4mm}%
     \setlength\paperwidth  {215.9mm}%
 \@letterpapertrue}
 \DeclareOption{landscape}
@@ -75,14 +75,14 @@
     \let\subsectionmark\@gobble}
 %
 \def\@stitle[#1]#2{\markboth{#1}{#1}%
-    %\pagestyle{empty}%
-     \thispagestyle{myheadings}
+    \pagestyle{plain}%
+     \thispagestyle{plain}
     \vspace*{25mm}{\exhyphenpenalty=10000\hyphenpenalty=10000 
     %\Large
 \fontsize{18bp}{24bp}\selectfont\bf\raggedright\noindent#2\par}}
 \def\@ftitle#1{\markboth{#1}{#1}%
-    \thispagestyle{myheadings}
-%\pagestyle{empty}%
+    \thispagestyle{plain}
+\pagestyle{plain}%
     \vspace*{25mm}{\exhyphenpenalty=10000\hyphenpenalty=10000 
     %\Large\raggedright\noindent\bf#1\par}
 \fontsize{18bp}{24bp}\selectfont\bf\noindent\raggedright#1\par}}
@@ -948,10 +948,10 @@
 \newcommand{\SSC}{{\it Solid State Commun.} }
 \newcommand{\ZP}{{\it Z. Phys.} }
 %===================
-\pagestyle{headings}
+\pagestyle{plain}
 \pagenumbering{arabic}
 \raggedbottom
-\onecolumn
+% \onecolumn
 \endinput
 %%
 %% End of file `jconf.cls'.
