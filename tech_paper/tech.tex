@@ -1,7 +1,4 @@
-\documentclass[11pt]{article} % "article" is one of the standard LaTeX styles
-% note that other styles are available and anything appropriate is acceptable.
-% All journals have their own style files defining the look of the article.
-% For these reports it's best to stick to one-column formatting.
+\documentclass[11pt]{article}
 
 \usepackage{graphicx} % for including graphics
 \usepackage{amsmath} % useful maths macros, including \text
@@ -10,20 +7,24 @@
 \usepackage{textcomp}
 \usepackage{afterpage}
 \usepackage{apacite}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage[style=ieee]{biblatex}
+\addbibresource{shared_resources/master.bib}
+
 % \usepackage{multicol}
 % \usepackage{float}
-\usepackage[a4paper, total={6in, 9.5in}]{geometry} % set the paper/text sizes
-% \usepackage{biblatex}
-% ADS bibtex references often include abbreviations.
-% This is where you can interpret them as they turn up:
+\usepackage[a4paper, total={6.5in, 7.5in}]{geometry} % set the paper/text sizes
 \def\apj{Astrophysical Journal}
 \def\prd{Physical Review D}
 \def\apjl{Astrophysical Journal Letters}
 
 
 
-\title{\bf{Bayesian parameter estimation of binary black hole coalescence}\\~\\
-\large Submittion of technical review of litertue}
+\title{\bf{Status and overview of deep-learning enhancements to gravitational wave parameter estimation}\\~\\
+\large Submission of technical literature review}
 
 
 
@@ -32,205 +33,75 @@
 \begin{document}
 \maketitle
 
+% section planning:
 
+\section*{Introductory gravitational waves (detail: pipeline and detections, progress, sensitivity, ASD}
 
-% \begin{abstract}
-% A neutral hydrogen density distribution map across our galactic equator is of significant value for probing the large-scale structure of the Milky Way. Data reduction is demonstrated for multiple small radio telescope drift-scan observations of antenna temperature as a function of right ascension. The resulting maps across the measurable sky from Glasgow are presented in equitorial and galactic coordinates.
-% \end{abstract}
+From their first hypothesis~\cite{einstein1} to the first direct detection of signal from binary black hole coalescence~\cite{abbott2016observation} by Advanced LIGO~\cite{advancedLIGO} and Advanced VIRGO~\cite{advacnedVIRGO} square-kilometre interferometers, we find ourselves in an exciting new epoch of gravitational physics. With the first two observing runs~\cite{BBHO1,gwtc1} and the first half of the third run~\cite{gwtc2} findings published along with corresponding public data release, the interest in gravitational waves is at an all time high (see figure~\ref{fig:wos}). Improvements in detector sensitivity between runs (see figure~\ref{fig:asd}) has allowed a much increased candidate detection-rate, of which more are to be published from the O3b run (note was cut short by COVID-19) to *insert approx dection rate for O3a* (see figure~\ref{fig:events}).
 
-
-
-\section{Introduction} \label{intro}
-
-The main intention of this practical project was to familiarise myself with the key planning, processing and presenting skills required to create an effective academic research environment. The final presentation was a galactic map which represents the density distribution of the 21cm neutral hydrogen (HI) line across the full observable sky from the Acre Road Observatory. Deciding to use the small radio telescope (SRT) negated many of the scheduling and weather limitations associated with optical imaging, all whilst contextualising our semester 1 radio astronomy lecture material within a field of current research. This particular project provided a significant incentive to learn Python as it was advised that much of the required data reduction was simplified considerably by Python-specific software packages.
-
-Working at 1.4GHz, the SRT operated with a bandwidth and beam-width of 4MHz and 3\degree, respectively. The full coverage of the observable sky was achieved by a series of 24-hour drift-scan observations, where fixing the antenna\textquotesingle s declination (Dec) allows the Earth\textquotesingle s rotation to map out antenna temperature ($T_{A}$) as a function of right ascension (RA).
- 
-Section \ref{obs} details the formal planning and practical implementation of these observations before sections \ref{data reduction}-\ref{gal map} demonstrate the justified scientific decision-making that was required to convert these binary observation files into a galactic sky map. Section \ref{conc} succinctly summarises and evaluates the practical processes of the full project diet, while the appendix provides the complementary raw-code used throughout.
-
-\subsection{Origin Of HI And Its Scientific Value} \label{theory}
-
-% up to here redrafted
-
-Hydrogen is the most abundant element in the cosmos; it makes up $\sim$80\% of the universe\textquotesingle s mass~\cite{5}. Since the interstellar medium (ISM) exists at extremely low temperatures ($\sim$100K), hydrogen here exists in its lowest energy ground state. Thus, due to its sheer abundance and ability to radiate unimpeded by interstellar dust (unlike visible light), the 21cm  line of HI becomes one of the most significant lines in radio astronomy.
-
-This spectral line was first predicted by van de Hulst in 1945~\cite{8}, who concluded that it was caused by a small energy transition of only 5.87$\mu$eV from discrete spin alignments of the electron and proton in the HI atom. The higher energy state of parallel spin alignment undergoes a forbidden transition to a lower energy anti-parallel arrangement with an average lifetime of $\sim$10 billion years~\cite{6}. This arrangement is analogous to two adjacent bar magnets with magnetic moment comparable to spin geometry of the sub-atomic particles. If the magnets are forced to be in a parallel alignment with both north poles facing up, then the system is inclined to transition to a lower energy anti-parallel state where one of the magnets flip to an anti-parallel arrangement. This is where the transition gets its title of \textquotedblleft spin-flip\textquotedblright”.
-
-Because of its abundance, there is a strong correlation between total mass and number density of hydrogen atoms. Thus, mapping HI gives information of large-scale structure of our galaxy~\cite{1}. Knowing that forbidden transitions produce a very narrow line profile, any detected line broadening can be likely attributed to Doppler effects of large-scale radial motion of gas. Through Doppler analysis, the HI density distribution can be converted into a velocity distribution to construct a rotation curve of the galaxy.
-
-This is of paramount interest to astronomers as once the rotation curve of a galaxy is known, it can be used to infer a multitude of fundamental properties of the galaxy and its constituent objects. These range from large-scale properties such as total mass, radii of spiral arms and the inference of a halo of dark matter, to minute gravitational instabilities of density wave perturbations; the latter requiring sensitive equipment to produce an incredibly high resolution map. This is a continuing area of research, with sky surveys only as recent as 2016~\cite{8}~achieving sufficient resolution to illustrate Doppler detail from weak (but still dominant over random thermal motion) radial gas velocities. The presentation of this published map is what inspired the formatting of my own galactic plot in section~\ref{gal map}.
-
-\section{Overview of Observations} \label{obs}
-
-We were tasked with covering the full visible sky in nine weeks, noting that observations at an altitude (alt) of $\leq$~30\degree~become extremely noisy and convoluted from ground-based interference. Observations worked on a weekly basis by submitting a Python script every Tuesday for six observations, leaving each subsequent Monday vacant for data storage and resting the SRT motor. Significant jumps in position increased the likelihood of this motor failing, so it was decided to point south in preparation for lower alt observations -- where the majority of galactic detail exists -- and work down from 90\degree~in 2\degree~intervals. This creates the issue of the 3\degree~beam causing overlap between consecutive observations that will need to be addressed in section \ref{data reduction} to ensure integrity throughout our sky map.
-
-%
-
-\begin{figure*}[t!]
-\centering
-\includegraphics[width=\linewidth]{Figs/1SUNandINT}
-\caption{Calibrated Observation files. a) Smearing effect of interference source b) Saturation across full waveband from clipping the Sun.}
-\label{fig:obs}
-\end{figure*}
-
-%
-
-Each Monday, I read in and calibrated the previous week\textquotesingle s observation data using Python, as detailed in section \ref{calib}. The first week\textquotesingle s data turned out far more smeared across the waveband than expected (see figure \ref{fig:obs}(a)). Upon probing the eastern sky within the radio-band, a quasi-sinusoidal broadband transmission from the nearby science park was detected and its period discovered to be of the same order as our integration time. This accounted for the intense blurring as every individual five-second observation was convolved with a full interference profile, reducing the signal-to-noise ratio (SNR) significantly. As a preventative measure, we aimed the second week’s high Alt observations westward to minimise interception with the signal. This brought about very little difference however, the third week\textquotesingle s data had no such blurring. From this instantaneous fix, I deduced that it was likely some small electronic device producing the signal, whose emission within a restricted band was overlooked and coincidentally turned off after week three.
-
-In its absence, the SRT was pointed south again and –-- leaving time to repeat these sullied observations over the Easter break -- lower alt observations were continued, eventually clipping the sun. We can see from the power values in figure \ref{fig:obs}(b) that it is incredibly intense across the full waveband. This will need to be accounted for in section \ref{cleaning} as, upon integration across the waveband, this sun value will saturate our sky map.
-
-\subsection{Calibration Method} \label{calib}
-
-Calibration required a flat-frame observation to be taken with eccosorb material blocking the receiver, allowing only transmission from the two calibration lines to be detected. An integration time of sixty seconds was required to allow time for multiple five-second observations across the waveband to be taken after the electronics warmed up. The more intense of the two lines (cal1) was so intense compared to any detected galactic emission that it dominates both calibration and observation data. This allows us to normalise each relative to the cal1 reference and then divide to remove any receiver noise. However, this normalisation scales $T_{A}$ thus, for convention I kept them as arbitrary power values in figure \ref{fig:obs}.
-
-Listing \ref{lst:calib} in appendix illustrates how the flat-frame was constructed by taking an average of the observations after the electronics had settled. This method is only valid under the assumption that cal1 remains invariant during and between each observation. From previous years' archival data we were aware of some fluctuations in both calibration line intensities. In section \ref{recalib}, I tested the integrity of our own lines to decide if an alternate calibration method needed to be comprised.
-
-\section{Data Reduction} \label{data reduction} 
-
-By nature of radio observations, both signal and background are noise-like therefore the focus of data reduction is increasing SNR wherever possible. By integrating across the full waveband, the signal level grows whilst the random noise that it sits above converges to a mean value, consequently allowing the signal to be discernible from the background level. This provides the ability to isolate and remove noise-level data –- a tool that proves useful when implemented in section \ref{gal map}.
-
-%{}
-
-\begin{figure*}[t!]
-\centering
-\includegraphics[width=\linewidth]{Figs/14Powers.png}
-\caption{Plots of integrated power arrays. a) Original array –- details saturated by first elements. b) Chopped array –- more detail but saturation lines present. c) Quantised array –- 360 Power values.}
-\label{fig:powers}
-\end{figure*}
-
-%
-
-For a single observation, the values of $T_{A}$ in each of the 256 frequency columns were summed. A loop was then introduced to repeat this for each row, producing a 1D array of power value corresponding to five-second observation, illustrated in figure \ref{fig:powers}(a). We can see a lot of the profile detail is saturated by early observations. I assumed this would be attributed to the time-delay in electronics warming up -- similar to the calibration electronics in section \ref{calib}. Figure \ref{fig:powers}(b) shows that, by excluding the first thirty seconds of the observation, details such as receiver-based saturation lines become more apparent. Moving forward, these lines need to be accounted for to prevent misplaced locations of HI within our sky map.
-
-Having an array of powers corresponding to each five-second observation is useful, however a conversion from an arbitrary time series to discrete RA values is required for mapping. This was done by importing Python\textquotesingle s \textit{Astropy} package. 
-
-Provided by our demonstrator, listing \ref{lst:astropy} in appendix constructed variables of starting RA, Dec and time of each observation directly from its filename. These, along with the desired number of discrete coordinate values throughout 24 hour observation were inputted into the \textit{astropy.coordinates} function. This created two separate arrays of RA and Dec corresponding to each five-second observation. Small fluctuations ($\leq$~0.2\degree) in Dec values arose from slight wobbles in SRT motor positioning, however this would have little bearing on a map spread across full 90\degree~sky. Unexpectedly, both RA and Dec values were printed as coordinates in degrees and arcminutes, so a conversion of RA into units of time would be required. 
-
-We now have discrete arrays of RA, Dec and power for each observation -- the remainder of section \ref{data reduction} discusses two methods of combining these into a sky map.
-
-\subsection{Idea 1 –- Scatter Plot of Quantised Power Values} \label{idea1}
-
-My first idea focussed on increasing the effective integration times of observations to suppress receiver-error spikes in power from figure \ref{fig:powers}(b). Setting the extent of this increase became a trade-off between SNR and resolution. It was noted that the 3\degree~beam sets a severe limit on resolution and trying to move past this would be equivalent to trying to recreate a 17th century painting with a broad-tip sharpie –- pointless. I decided an increase from five seconds to four minutes allowed exactly 360 effective observations per 24-hour exposure. This was implemented by summing up every 48 values of power, producing an appropriate number to use with coordinates and a cleaner power profile –- see figure \ref{fig:powers}(c). 
-
-Ensuring the \textit{astropy.coordinates} time range remains equal to the length of power array, we have two corresponding coordinate arrays of 360 values. After some research on \textit{numpy} package (this deals with manipulation of arrays), I encountered \textit{numpy.meshgrid} that takes two arrays and plots a 2D linear-space frame, over which our map can be plotted. I then found the function \textit{matplotlib.pyplot.scatter} (\textit{matplotlib.pyplot} being a package that deals with formatting data plots) which takes three arrays and plots a colormap of the latter on top of an x-y grid of the first two -- provided they are all of equal length. This method was implemented, as detailed in listing \ref{lst:scatter} in appendix, and then looped to overlay all 50 observations atop this meshgrid. The marker size was increased to 25 to minimise the discontinuous barcode-like effect caused by overlaying discrete strips of Dec, producing figure \ref{fig:scatter}.
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{Figs/15RADecScatter.png}
-\caption{Scatter plot comprised of discrete strips of Dec.}
-\label{fig:scatter}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=.6\linewidth]{shared_resources/shared_figs/wos.png}
+    \caption{Caption}
+    \label{fig:wos}
 \end{figure}
 
-\subsubsection{Evaluation of Scatter Method} \label{idea1 eval}
+\subsection*{What are grav waves and how to detect - focus on transients (not spec BBH yet)}
 
-This plot successfully shows some galactic plane detail. However, when trying to clean up the noise and discontinuities of the image, the severe limitations in the coding style and underlying method itself became evident.
-
-I encountered my first issue when applying a colorbar to the plot with limits that would accentuate its power detail. However, as it is constructed by overlaying one iteration at a time, it was not possible to associate a colorbar with the entire plot due to independent power levels of each strip. This creates a significant power gradient in the middle of the plot, where there should exist only blank sky. Furthermore, the underlying method does not account for the power overlap between consecutive observations. Similar CCDs above their pixel capacity saturating an image, our data squeezes up and appears more intense as we increase in Dec. As the majority of the observable galactic detail exists at lower Decs, this data overlap is a large detriment to the integrity of our sky map.
-
-Moving forward, we need a method that accounts for this observational overlap and that plots outside the data reduction process to allow image cleaning.
-
-\subsection{Idea 2 -- Quantised Matrix Map} \label{idea2}
-
-My idea in section \ref{idea1} successfully corrected for RA overlapping thoughout each observation but was unable to do the same for Decs between each observation. To correct for both coordinate axes, I decided to round both RA and Decs to the nearest degree. This effectively takes all observations, quantises their positions into small sky patches of 1\degree~by 1\degree~and overlays their power data to discretise the observable sky into a 90x360 grid of Dec and RA, respectively. 
-
-A matrix of equal dimensions to the sky grid was then constructed with each position in this matrix analogous to a CCD pixel which is only sensitive to its corresponding sky grid position and whose value is the sum of all power values transmitted from this patch of sky. A second matrix was then created as a 2D histogram to keep track of how many discrete integrations were contained within each sky grid position. The power matrix was then divided by this counter matrix, which corrects for the overlap by scaling the final power distribution to ensure an equal number of effective observations were taken in each angular position across the full sky.
-
-Listing \ref{lst:matrix} in appendix details how position arrays were rounded and their integer values extracted to be used as pixel-indices for the power matrix. The counter was constructed as a \textit{numpy.ones} matrix opposed to one of zeros to prevent Python trying to divide by zero in regions of blank sky. Figure \ref{fig:matrix} shows the image produced using this method.
-
-
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{Figs/2MAPwithSUN.png}
-\caption{Image of scaled power matrix – saturated by sun observations.}
-\label{fig:matrix}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\linewidth]{shared_resources/shared_figs/inspiral.png}
+    \caption{Caption}
+    \label{fig:events}
 \end{figure}
 
-Although the problem of observational overlap has been corrected for, this image is devoid of any illustrative galactic detail. It appears as though an incredibly bright object with a Dec of ~12\degree~saturates it. With reference to figure \ref{fig:obs}(b), this object is likely to be the Sun and so a better picture of HI density distribution across the galactic plane requires this sun saturation to be ameliorated.
-
-\section{Image Cleaning} \label{cleaning}
-
-Up until this point, the project had been primarily concept-oriented with some basic programming used to produce a sky map in RA/Dec –- see figure \ref{fig:matrix}. Looking onwards, it became a computationally driven effort to make this image as informative as possible by means of a series of justified scientific decisions and manipulations; namely, removing the sun saturation and implementing a blank sky calibration.
-
-\subsection{Sun Removal}
-
-In essence, I wanted to plot the values of power matrix in descending order and see if there is a significant spike from sun emission. Then (without altering galactic data) remove power values above this discontinuity threshold and re-plot.
-
-Firstly, the low-limit saturation of zero power values from non-observed sky was corrected by utilising the \textit{numpy.nan} function to logically replace each zero point to \textquotedblleft not a number\textquotedblright~that are effectively ignored in plotting process. (Noting the similarity between this and removing power-values during electronic warmup in section \ref{obs}). To deal with the high-limit saturation, I created a function that reordered the matrix into descending power values -- listing \ref{lst:sunthresh} in appendix highlights the steps taken to reshape power matrix into a 1D list before implementing this function. 
-
-%
-
-\begin{figure*}[t!]
-\centering
-\includegraphics[width=\linewidth]{Figs/3SUNTHRESHandREMOVAL.png}
-\caption{Sun Saturation Correction. a) High Powers plotted to identify Sun threshold. b) Sky map after blank sky calibration. }
-\label{fig:thresh}
-\end{figure*}
-%
-
-These values were plotted in figure \ref{fig:thresh}(a), showing a significant discrepancy between the first twenty power values and the remainder of the array. This allowed the approximate threshold of sun emission to be identified. The exact value could not be determined, as there would be inevitable overlap in power values between strong galactic and weak sun emission. Due to the discrete location of the sun within the map, it was possible circumvent this possible loss of galactic emission detail by only applying this threshold to RA’s greater than 19hrs which do not intercept with galactic plane; if a particular Dec has corresponding power value above threshold, it gets replaced by the mean power of the blank sky of the same Dec.
-
-The resulting map –- illustrated in figure \ref{fig:thresh}(b) –- was optimised by correlating extremities of power values and colorbar limits. With galactic plane detail now evident, two unexpected results were identified; the former being the discretisation of the (ideally) continuous galactic plane. This was attributed to a resolution limitation - an unavoidable consequence of optimising its conjugate variable of SNR. The latter being the blank sky region seeming to have severe inconsistencies between strips of Dec, as if the system temperature ($T_{sys}$) of the SRT varies between observations. Further investigation of these variations was undertaken in section \ref{recalib}.
- 
- \subsection{Recalibrating data} \label{recalib}
-
-My planned investigatory process was to test the integrity of the calibration lines for each observation and if necessary find a method to recalibrate data by forcing the blank sky region of our map to homogenise.
-
-%{}
-
-\begin{figure*}[t!]
-\centering
-\includegraphics[width=\linewidth]{Figs/4CALIBLINESandBLANKSKY.png}
-\caption{Blank sky calibration. a) Plot of mean transmission of calibration lines for each observation. b) Resulting sky map from recalibration.}
-\label{fig:recalib}
-\end{figure*}
-
-%
+\subsection*{More info on detection pipelines - intro problems/ improvements for Bayesian and ML}
 
 
-In the reshaped data files, calibration lines were observed across frequency columns 34 and 222. The mean power in these bins throughout each observation were plotted - ideally producing two horizontal lines of invariant power. Figure \ref{fig:recalib}(a) instead presented $T_{sys}$ variations of up to 35\% between observations. After consulting with demonstrators, these wild fluctuations were attributed to the changing temperature outside having a significant effect on $T_{sys}$. However, due to time restrictions, no real preventative investigation into this was carried out, and instead it was decided to recalibrate using the blank sky region of our map.
+\section*{Bayesian Intro (usefulness in pipeline)}
 
-This recalibration was constructed by taking a vertical slice of expected blank sky and manipulating each strip of Dec to conform to a constant value. The vertical slice was chosen in the middle of map to prevent compromising the integrity of the galactic plane emission. Listing \ref{lst:recalib} in appendix shows how I created a column vector with elements corresponding to the quotient of each strip of Dec relative to an arbitrary reference Dec. The power matrix was manipulated by this scaling vector to create a homogenised region in the middle of the map, see figure \ref{fig:recalib}(b). This produced a more uniform background level allowing the signal to have far better visual clarity between Decs. The final step in this project was now to convert this RA/Dec map into galactic coordinates to illustrate the density distribution more effectively throughout the geometry of the galactic plane.
 
-\section{Producing Galactic Map} \label{gal map}
+\section*{Introductory machines learning}
 
-To prevent unwanted signal being revolved and contorted during the \textit{astropy.coordinate} conversion, I decided to isolate the galactic emission by taking a strict threshold that homogenises any signal under a certain power level. Listing \ref{lst:thresh} in appendix illustrates how this was implemented, with the limiting value iteratively chosen as high as possible without notable loss of galactic detail. Figure \ref{fig:rathresh} illustrates the positive effect that homogenising background has on visual galactic detail. However, altering the data so severely to maximise image quality limits the ability to correlate power values with sky temperature and thus, the colormap was kept as a simple qualitative representation of HI Abundance.
+\section*{Plan for final report intro}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\linewidth]{Figs/5RAThresh.png}
-\caption{Isolated galactic signal post-thresholding.}
-\label{fig:rathresh}
+I have kept this literature review very general as, by virtue of such a complex topic that is new to me, and the cutting-edge nature of the research the exact nature of my project direction is being modified weekly. Also, by nature of the very specific methods of PE,sampling, CVAE etc, I have found that I have not grasped all aspects quite yet, so cannot write about them. The main things I am looking to work on before a final draft of intro will be completed:
+\begin{itemize}
+  \item Variational inference (VI) methods (expecting a presentation within the IGR-data group week beginning , specifically Conditional Variational Autoencoders (CVAE)
+  \item Publication of O3b catalog
+  \item Better practical working knowledge of tensorflow~\cite{tensorflow}
+\end{itemize}
+
+
+\begin{figure}[htb]
+     \centering
+     \begin{subfigure}[t]{0.47\linewidth}
+         \centering
+         \includegraphics[width=\linewidth]{shared_resources/shared_figs/o2_asd.png}
+     \end{subfigure}
+     \begin{subfigure}[t]{0.47\linewidth}
+         \centering
+         \includegraphics[width=\linewidth]{shared_resources/shared_figs/o3a_asd.png}
+     \end{subfigure}
+     \vspace*{-7mm}
+     \caption{Full caption}
+     \label{fig:asd}
 \end{figure}
 
-To convert this data into galactic coordinates, Decs had to be altered to span from -90\degree~to +90\degree~to align with galactic latitude. Listing \ref{lst:galplot} in appendix shows the technicalities required to ensure the galactic plane and the equator of our map aligned. Figure \ref{fig:gal map} was produced using a hammer projection to accentuate galactic equator detail - noting the shift of galactic longitude axis to be centred on 120\degree~to allow a more symmetrical presentation of data, limited by the observable sky from Glasgow.
-
-
-%
-
-\begin{figure*}[b!]
-\centering
-\includegraphics[width=0.85\linewidth]{Figs/6GALMAPGOOD.png}
-\caption{Final density distribution map of HI across galactic plane.}
-\label{fig:gal map}
-\end{figure*}
-
-%
-
-Although devoid of quantitative representation of HI emission, this plot successfully conveys the flat geometry of galactic equator. Some remnants of this \textit{astropy} signal contortion, despite minimised by threshold, still exist as an unavoidable consequence of ensuring no loss of galactic emission. The absence of central galactic detail could have been predicted from our previous RA/Dec maps as their galactic profile lines do not join at the base. This is due to this join occurring at Decs so low that our observations were invalidated by intense ground-based interference.
-
-\documentclass[11pt]{article}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=.75\linewidth]{shared_resources/shared_figs/number_events.png}
+    \caption{Caption}
+    \label{fig:events}
+\end{figure}
 
 
 
-\section{Conclusion} \label{conc}
 
-The aim of this report was to provide a practical account of my first involvement in a formal academic research environment. My experience of working as part of a large team saw specific tasks of observational planning, data reduction and result presenting successfully undertaken; culminating in the production of a galactic HI density distribution map (see figure \ref{fig:gal map}).
 
-Both collaborative and individual work enabled the detection and correction of issues, such as the presence of strong interference sources and fluctuating calibration lines, through due scientific process. I also gained experience of justifying and executing scientific decisions allowing results to be presented in a more illustrative manner.
+\newpage
 
-For further work, our binary data files could be used to construct a velocity distribution by discretising the waveband instead of integrating across its entirety. This new distribution would be a more versatile tool for probing galactic structure and its parameters (see section ~\ref{theory}). Furthermore, due to the large amount of observational data, Python scripts took a surplus of twenty minutes to create final plots. If further measurements of the observable sky were to be taken, a heavier-duty coding package such as \textit{C++} would enhance the efficiency of raw data reduction before exporting to Python for user-friendly alterations and presentations.
-
+\printbibliography
 
 
 
